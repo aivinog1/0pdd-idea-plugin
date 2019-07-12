@@ -1,0 +1,10 @@
+--source=.
+--verbose
+--exclude .gradle/**/*
+--exclude .build/**/*
+--exclude .idea/**/*
+--exclude gradlew
+--exclude gradlew.bat
+--rule min-words:10
+--rule min-estimate:15
+--rule max-estimate:90
