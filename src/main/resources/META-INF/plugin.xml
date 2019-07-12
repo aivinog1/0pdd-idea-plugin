@@ -5,7 +5,7 @@
     <vendor email="vinogradov.a.i.93@gmail.com" url="https://github.com/aivinog1/0pdd-idea-plugin">Vinogradov Alexey</vendor>
 
     <description>This is the plugin that works with your PDD-puzzles.</description>
-    <!--@todo #1:30m Needs to set compatible versions of IDEA platform.-->
+    <!-- @todo #1:30m Needs to set compatible versions of IDEA platform.-->
 
     <depends>com.intellij.modules.lang</depends>
 
