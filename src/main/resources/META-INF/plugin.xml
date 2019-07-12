@@ -1,4 +1,4 @@
-<!--@todo #1:30m Needs to add some verifiers to verify this file. xcop maybe.-->
+<!-- @todo #1:30m Needs to add some verifiers to verify this file. xcop maybe.-->
 <idea-plugin>
     <id>com.aivinog1.0pdd-idea-plugin</id>
     <name>PDD</name>
