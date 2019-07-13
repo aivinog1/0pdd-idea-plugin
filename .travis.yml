@@ -15,4 +15,4 @@ env:
 jdk:
   - oraclejdk8
 # @todo #10:30m Needs to integrate with codecov. That will enable coverage report for this project.
-
+dist: trusty
