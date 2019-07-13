@@ -1,1 +1,17 @@
-# @todo #1:30m Needs to set up proper CI/CD pipeline with Travis CI to the strict policy.
+language: java
+sudo: false
+# @todo #10:30m Needs to implement a proper caching for some artifacts. That will speed up builds.
+install:
+  - gem install pdd -v 0.20.5
+  - gem install xcop -v 0.6
+script:
+  - set -e
+  - pdd --file=/dev/null
+# @todo 10:30m Add another check after creating some tests. That will be needed to codecov.
+  - ./gradlew buildPlugin
+env:
+  global:
+    - JAVA_OPTS="-Xmx256m"
+jdk: oraclejdk8
+# @todo #10:30m Needs to integrate with codecov. That will enable coverage report for this project.
+
