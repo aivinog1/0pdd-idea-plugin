@@ -7,7 +7,7 @@ install:
 script:
   - set -e
   - pdd --file=/dev/null
-# @todo 10:30m Add another check after creating some tests. That will be needed to codecov.
+# @todo #10:30m Add another check after creating some tests. That will be needed to codecov.
   - ./gradlew buildPlugin
 env:
   global:
