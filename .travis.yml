@@ -7,11 +7,12 @@ install:
 script:
   - set -e
   - pdd --file=/dev/null
-# @todo 10:30m Add another check after creating some tests. That will be needed to codecov.
+  # @todo 10:30m Add another check after creating some tests. That will be needed to codecov.
   - ./gradlew buildPlugin
 env:
   global:
     - JAVA_OPTS="-Xmx256m"
-jdk: oraclejdk8
+jdk:
+  - oraclejdk8
 # @todo #10:30m Needs to integrate with codecov. That will enable coverage report for this project.
 
