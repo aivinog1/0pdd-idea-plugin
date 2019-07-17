@@ -1,1 +1,15 @@
-# @todo #1:30m Needs to integrate with Rultor to merge requests properly after CI/CD passed.
+architect:
+  - aivinog1
+docker:
+  image: yegor256/java8
+install:
+  - sudo gem install --no-rdoc --no-ri pdd
+  - sudo gem install --no-rdoc --no-ri xcop
+merge:
+  script:
+    - pdd --file=/dev/null
+    - ./gradlew buildPlugin
+# @todo #14:30m Add another check after creating some tests.
+#  For now, as I understand tests aren't executed.
+# @todo #14:30m Add deploy/release stages. For now, this plugin isn't published anywhere.
+#  After some work is done, needs to publish it.
