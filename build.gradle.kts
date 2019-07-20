@@ -4,9 +4,9 @@ group = "com.aivinog1"
 version = "1.0-SNAPSHOT"
 
 buildscript {
-    repositories { mavenCentral()}
+    repositories { mavenCentral() }
     // @todo #26:30m For now, this version and Kotlin plugin version are duplicate itself's. Needs to move it in a variable.
-    dependencies {classpath(kotlin("gradle-plugin", "1.2.30"))}
+    dependencies { classpath(kotlin("gradle-plugin", "1.2.30")) }
 }
 
 plugins {
@@ -15,7 +15,7 @@ plugins {
 }
 
 intellij {
-    version= "2019.1.3"
+    version = "2019.1.3"
 
     tasks {
         withType<PatchPluginXmlTask> {
