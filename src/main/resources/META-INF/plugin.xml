@@ -2,7 +2,8 @@
 <idea-plugin>
     <id>com.aivinog1.0pdd-idea-plugin</id>
     <name>PDD</name>
-    <vendor email="vinogradov.a.i.93@gmail.com" url="https://github.com/aivinog1/0pdd-idea-plugin">Vinogradov Alexey</vendor>
+    <vendor email="vinogradov.a.i.93@gmail.com" url="https://github.com/aivinog1/0pdd-idea-plugin">Vinogradov Alexey
+    </vendor>
 
     <description>This is the plugin that works with your PDD-puzzles.</description>
     <!-- @todo #1:30m Needs to set compatible versions of the IDEA platform. The poll from the Zerocracy group says that 2018.3 is fair enough.-->
@@ -14,6 +15,9 @@
     </extensions>
 
     <actions>
-        <!-- Add your actions here -->
+        <action id="com.aivinog1.pdd.plugin.TestTask" class="com.aivinog1.pdd.plugin.TestTask" text="Test Action"
+                description="Test Action">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
     </actions>
 </idea-plugin>
