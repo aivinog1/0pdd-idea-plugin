@@ -1,6 +1,12 @@
 language: java
 sudo: false
-# @todo #10:30m Needs to implement a proper caching for some artifacts. That will speed up builds.
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
 install:
   - gem install pdd -v 0.20.5
   - gem install xcop -v 0.6
