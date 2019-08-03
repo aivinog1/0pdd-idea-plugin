@@ -15,6 +15,7 @@ script:
   - pdd --file=/dev/null
   - ./gradlew buildPlugin
   - ./gradlew check
+  - ./gradlew codeCoverageReport
 env:
   global:
     - JAVA_OPTS="-Xmx256m"

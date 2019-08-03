@@ -15,10 +15,30 @@ plugins {
     id("org.jetbrains.intellij") version ("0.4.9")
     kotlin("jvm") version ("1.2.30")
     id("io.gitlab.arturbosch.detekt") version("1.0.0-RC16")
+    jacoco
 }
 
 repositories {
     jcenter()
+}
+
+tasks {
+    val codeCoverageReport by creating(JacocoReport::class) {
+        executionData(fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec"))
+
+        subprojects.onEach {
+            sourceSets(it.sourceSets["main"])
+        }
+
+        reports {
+            xml.isEnabled = true
+            xml.destination = File("$buildDir/reports/jacoco/report.xml")
+            html.isEnabled = false
+            csv.isEnabled = false
+        }
+
+        dependsOn("test")
+    }
 }
 
 intellij {
