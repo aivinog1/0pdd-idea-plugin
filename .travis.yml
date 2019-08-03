@@ -13,8 +13,8 @@ install:
 script:
   - set -e
   - pdd --file=/dev/null
-# @todo #10:30m Add another check after creating some tests. That will be needed to codecov.
   - ./gradlew buildPlugin
+  - ./gradlew check
 env:
   global:
     - JAVA_OPTS="-Xmx256m"
@@ -22,4 +22,3 @@ jdk:
   - oraclejdk8
 dist: trusty
 after_success: bash <(curl -s https://codecov.io/bash)
-
