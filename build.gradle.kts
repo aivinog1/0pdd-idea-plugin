@@ -36,3 +36,4 @@ detekt {
     input = files("src/main/kotlin")
     filters = ".*/resources/.*,.*/build/.*"
 }
+// @todo #22:30m Need to implement job that will create coverage report for Codecov
