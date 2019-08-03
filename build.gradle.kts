@@ -1,4 +1,5 @@
 import org.jetbrains.intellij.tasks.PatchPluginXmlTask
+import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
 
 group = "com.aivinog1"
 version = "1.0-SNAPSHOT"
@@ -18,11 +19,22 @@ plugins {
     jacoco
 }
 
+val junit5Version = "5.3.1"
+val kotlinVersion = plugins.getPlugin(KotlinPluginWrapper::class.java).kotlinPluginVersion
+
+dependencies {
+    testImplementation("org.jetbrains.kotlin:kotlin-test:$kotlinVersion")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:$junit5Version")
+}
+
 repositories {
     jcenter()
 }
 
 tasks {
+    "test"(Test::class) {
+        useJUnitPlatform()
+    }
     val codeCoverageReport by creating(JacocoReport::class) {
         executionData(fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec"))
 
@@ -49,6 +61,10 @@ intellij {
             changeNotes("")
         }
     }
+}
+
+jacoco {
+    toolVersion = "0.8.2"
 }
 
 detekt {
