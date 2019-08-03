@@ -31,26 +31,19 @@ repositories {
     jcenter()
 }
 
-tasks {
-    "test"(Test::class) {
-        useJUnitPlatform()
+tasks.jacocoTestReport {
+    reports {
+        xml.isEnabled = true
+        xml.destination  = File("$buildDir/reports/jacoco/report.xml")
+        csv.isEnabled = false
+        html.isEnabled = false
     }
-    val codeCoverageReport by creating(JacocoReport::class) {
-        executionData(fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec"))
+    executionData(File("build/jacoco/test.exec"))
+}
 
-        subprojects.onEach {
-            sourceSets(it.sourceSets["main"])
-        }
-
-        reports {
-            xml.isEnabled = true
-            xml.destination = File("$buildDir/reports/jacoco/report.xml")
-            html.isEnabled = false
-            csv.isEnabled = false
-        }
-
-        dependsOn("test")
-    }
+tasks.test {
+    useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport)
 }
 
 intellij {
@@ -61,10 +54,6 @@ intellij {
             changeNotes("")
         }
     }
-}
-
-jacoco {
-    toolVersion = "0.8.2"
 }
 
 detekt {
