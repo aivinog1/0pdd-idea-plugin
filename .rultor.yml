@@ -9,7 +9,7 @@ merge:
   script:
     - pdd --file=/dev/null
     - ./gradlew buildPlugin
-# @todo #14:30m Add another check after creating some tests.
-#  For now, as I understand tests aren't executed.
+    - ./gradlew verifyPlugin
+    - ./gradlew check
 # @todo #14:30m Add deploy/release stages. For now, this plugin isn't published anywhere.
 #  After some work is done, needs to publish it.
