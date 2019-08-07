@@ -19,5 +19,6 @@
                 description="Test Action">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
+        <!-- @todo #15:30m Let's register CreateNewPddAction. Now this task is not registered and didn't appear on the menu. Let's implement this.-->
     </actions>
 </idea-plugin>

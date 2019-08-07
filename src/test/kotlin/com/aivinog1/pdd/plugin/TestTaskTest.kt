@@ -1,6 +1,6 @@
 package com.aivinog1.pdd.plugin
 
-import org.junit.jupiter.api.Test
+import org.junit.Test
 import kotlin.test.assertNotNull
 
 /**
@@ -8,7 +8,7 @@ import kotlin.test.assertNotNull
  */
 class TestTaskTest {
 
-    val testTask: TestTask = TestTask()
+    private val testTask: TestTask = TestTask()
 
     @Test
     fun test() {

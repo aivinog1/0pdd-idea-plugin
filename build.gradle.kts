@@ -19,18 +19,11 @@ plugins {
     jacoco
 }
 
-val junit5Version = "5.3.1"
-val kotlinVersion = plugins.getPlugin(KotlinPluginWrapper::class.java).kotlinPluginVersion
-
-dependencies {
-    testImplementation("org.jetbrains.kotlin:kotlin-test:$kotlinVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:$junit5Version")
-}
-
 repositories {
     jcenter()
 }
 
+// @todo #15:30 Set limit of code coverage. To ensure that the project has a good quality let's use high coverage demand.
 tasks.jacocoTestReport {
     reports {
         xml.isEnabled = true
@@ -41,8 +34,11 @@ tasks.jacocoTestReport {
     executionData(File("build/jacoco/test.exec"))
 }
 
+dependencies{
+    testImplementation("io.mockk:mockk:1.9.3")
+}
+
 tasks.test {
-    useJUnitPlatform()
     finalizedBy(tasks.jacocoTestReport)
 }
 
