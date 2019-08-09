@@ -7,7 +7,7 @@ import com.intellij.testFramework.fixtures.LightPlatformCodeInsightFixture4TestC
 import io.mockk.*
 import org.junit.Test
 
-class CreateNewPddActionTest: LightPlatformCodeInsightFixture4TestCase() {
+class CreateNewPddActionTest : LightPlatformCodeInsightFixture4TestCase() {
 
     private val logger: Logger = mockk()
     private val createNewPddAction = CreateNewPddAction(logger = logger)
@@ -21,11 +21,22 @@ class CreateNewPddActionTest: LightPlatformCodeInsightFixture4TestCase() {
         every { logger.trace("Current language: Language: JAVA. It's comment is //.") } just Runs
         // @todo #15:30m After CreateNewPddAction became registered let's drop this mock and invite action via the IntelliJ platform.
         val actionEvent: AnActionEvent = mockk()
-        every { actionEvent.getData(CommonDataKeys.PSI_FILE) } returns myFixture.configureByFile("SimpleJavaClass.java")
+        val fileName = "SimpleJavaClass.java"
+        val file = myFixture.configureByFile(fileName)
+        every { actionEvent.getData(CommonDataKeys.PSI_FILE) } returns file
+        every { actionEvent.getData(CommonDataKeys.EDITOR) } returns myFixture.editor
+        every { actionEvent.getData(CommonDataKeys.PROJECT) } returns myFixture.project
         createNewPddAction.actionPerformed(actionEvent)
         verify {
             logger.trace("Current language: Language: JAVA. It's comment is //.")
         }
+        myFixture.checkResult(fileName,
+                """//package org.test;
+
+class Test {
+    private String test;
+}
+""", false)
         confirmVerified(logger)
     }
 }

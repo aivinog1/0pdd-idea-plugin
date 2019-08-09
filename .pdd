@@ -1,6 +1,7 @@
 --source=.
 --verbose
 --exclude .gradle/**/*
+--exclude gradle/**/*
 --exclude build/**/*
 --exclude .idea/**/*
 --exclude gradlew
