@@ -12,9 +12,12 @@ import com.intellij.psi.PsiFile
 
 /**
  * This action creates a new PDD todo.
- * @todo #38:30m Consider moving to the EditorAction. I think, this class would be more suitable for this task.
+ * @todo #38:30m Consider moving to the EditorAction.
+ *  I think, this class would be more suitable for this task.
  */
-class CreateNewPddAction(private val logger: Logger = Logger.getInstance("CreateNewPddAction")) : AnAction("Create a new PDD.") {
+class CreateNewPddAction(private val logger:
+                         Logger = Logger.getInstance("CreateNewPddAction"))
+    : AnAction("Create a new PDD.") {
 
     override fun actionPerformed(e: AnActionEvent) {
         val file = e.getData(CommonDataKeys.PSI_FILE)
@@ -33,7 +36,8 @@ class CreateNewPddAction(private val logger: Logger = Logger.getInstance("Create
             val document = editor.document
             if (document.isWritable) {
                 WriteCommandAction.runWriteCommandAction(project) {
-                    // @todo #38:30 For now this action just comment line and nothing more. Needs to implement inserting a todo.
+                    // @todo #38:30 For now this action just comment line and nothing more.
+                    //  Needs to implement inserting a todo.
                     document.insertString(0, lineCommentPrefix)
                 }
             }

@@ -1,6 +1,6 @@
 # @todo #9:30m Needs to set up most restrict policy that ever can be.
 build:
-  maxIssues: 1
+  maxIssues: 0
   weights:
     # complexity: 2
     # LongParameterList: 1

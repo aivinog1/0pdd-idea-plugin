@@ -19,7 +19,8 @@ class CreateNewPddActionTest : LightPlatformCodeInsightFixture4TestCase() {
     @Test
     fun `test that simple java file has comment`() {
         every { logger.trace("Current language: Language: JAVA. It's comment is //.") } just Runs
-        // @todo #15:30m After CreateNewPddAction became registered let's drop this mock and invite action via the IntelliJ platform.
+        // @todo #15:30m After CreateNewPddAction became registered
+        //  let's drop this mock and invite action via the IntelliJ platform.
         val actionEvent: AnActionEvent = mockk()
         val fileName = "SimpleJavaClass.java"
         val file = myFixture.configureByFile(fileName)

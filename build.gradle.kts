@@ -54,6 +54,9 @@ intellij {
 
 detekt {
     toolVersion = "1.0.0-RC16"
-    input = files("src/main/kotlin")
+    input = files("src/main/kotlin", "src/test/kotlin")
     filters = ".*/resources/.*,.*/build/.*"
+    buildUponDefaultConfig = true
+    failFast = true
+    config = files("default-detekt-config.yml")
 }
